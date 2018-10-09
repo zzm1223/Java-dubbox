@@ -9,8 +9,7 @@ Dubbox基于非常成熟的JBoss RestEasy框架，在dubbo中实现了REST风格
 二.Eclipse安装，
         略
 三.Maven安装
-        3.1.1. 前往https://maven.apache.org/download.cgi下载最新版的Maven程序：
-        https://images2017.cnblogs.com/blog/222300/201711/222300-20171115111910827-89242625.png
+        3.1.1. 前往https://maven.apache.org/download.cgi 下载最新版的Maven程序：       
 
         3.1.2. 将文件解压到D:\Program Files\Apache\maven目录下:
 
@@ -31,6 +30,20 @@ Dubbox基于非常成熟的JBoss RestEasy框架，在dubbo中实现了REST风格
         <localRepository>/path/to/local/repo</localRepository>
 
         localRepository节点默认是被注释掉的，需要把它移到注释之外，然后将localRepository节点的值改为我们在3.1中创建的目录D:\Program Files\Apache\maven-repository。
+        3.2.3、配置多个下载仓库中心，在<mirrors>之间添加下载镜像，以便快速下载相关文件。
+        
+        <mirror>
+                <id>alimaven</id>      
+                <name>aliyun maven</name>
+                <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+	        <mirrorOf>central</mirrorOf>
+        </mirror>
+	<mirror>
+                <id>repo2</id>      
+                <name>repo2 maven</name>
+                <url>http://repo2.maven.org/maven2</url>
+	        <mirrorOf>central</mirrorOf>
+        </mirror>
 
         3.2.3. localRepository节点用于配置本地仓库，本地仓库其实起到了一个缓存的作用，它的默认地址是 C:\Users\用户名.m2。
 
