@@ -4,11 +4,12 @@ Dubbo是一个来自阿里巴巴的开源分布式服务框架，当当根据自
 Dubbox基于非常成熟的JBoss RestEasy框架，在dubbo中实现了REST风格（HTTP + JSON/XML）的远程调用，以显著简化企业内部的跨语言交互，同时显著简化企业对外的Open API、无线API甚至AJAX服务端等等的开发。
 
 工具：Eclipse IDE;dubbo-2.8.4.jar；apache-maven-3.2.2;
-一.JDK安装（jdk1.7）
+
+  一.JDK安装（jdk1.7）
         略
-二.Eclipse安装，
+  二.Eclipse安装，
         略
-三.Maven安装
+  三.Maven安装
         3.1.1. 前往https://maven.apache.org/download.cgi 下载最新版的Maven程序：       
 
         3.1.2. 将文件解压到D:\Program Files\Apache\maven目录下:
