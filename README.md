@@ -1,15 +1,21 @@
-# Java分布式搭建
-一步步教你搭建基于Dubbox 的分布式服务的项目架构
+# Java分布式案例，基于dubbo+zookeeper搭建分布式服务
+一步步教你搭建基于Dubbo的分布式大型服务架构
 Dubbo是一个来自阿里巴巴的开源分布式服务框架，当当根据自身的需求，为Dubbo实现了一些新的功能，包括REST风格远程调用、Kryo/FST序列化等等。并将其命名为Dubbox。
 Dubbox基于非常成熟的JBoss RestEasy框架，在dubbo中实现了REST风格（HTTP + JSON/XML）的远程调用，以显著简化企业内部的跨语言交互，同时显著简化企业对外的Open API、无线API甚至AJAX服务端等等的开发。
 
-工具：Eclipse IDE;dubbo-2.8.4.jar；apache-maven-3.2.2;
+# 工具和相关包资源：
+Eclipse IDE;
+dubbo-2.8.4.jar;
+apache-tomcat-7.0.52.tar.gz
+zookeeper-3.4.6.tar.gz；
+apache-maven-3.2.2;
+dubbox-master.zip
 
-  一.JDK安装（jdk1.7）
+## 一.JDK安装（jdk1.7）
         略
-  二.Eclipse安装，
+## 二.Eclipse安装，
         略
-  三.Maven安装
+## 三.Maven安装
         3.1.1. 前往https://maven.apache.org/download.cgi 下载最新版的Maven程序：       
 
         3.1.2. 将文件解压到D:\Program Files\Apache\maven目录下:
@@ -22,7 +28,7 @@ Dubbox基于非常成熟的JBoss RestEasy框架，在dubbo中实现了REST风格
 
                  mvn -v
 
-    3.2、配置Maven本地仓库
+   ### 3.2、配置Maven本地仓库
 
         3.2.1. 在D:\Program Files\Apache\目录下新建maven-repository文件夹，该目录用作maven的本地库。
 
@@ -58,7 +64,7 @@ Dubbox基于非常成熟的JBoss RestEasy框架，在dubbo中实现了REST风格
 
         如果前面的配置成功，那么D:\Program Files\Apache\maven-repository会出现一些文件。
 
-   3.3、配置Eclipse的Maven环境
+  ### 3.3、配置Eclipse的Maven环境
 
         3.3.1. Eclipse Oxygen，打开Window->Preferences->Maven->Installations，右侧点击Add。
 
@@ -69,3 +75,31 @@ Dubbox基于非常成熟的JBoss RestEasy框架，在dubbo中实现了REST风格
         3.3.4. 打开Window->Preferences->Maven->User Settings，配置如下并Apply：
 
    至此，Maven的安装和配置全部结束。
+ ## 四、安装VMware 	
+ ## 五、安装centOS
+ ## 六、传送文件
+ 6.1、传zookeeper-3.4.6.tar.gz到CentOS并解压
+ 找到bin目录下的zkServer.sh启动（./zkServer.sh start）
+ 6.2、传apache-tomcat-7.0.52.tar.gz到CentOS并解压
+ 在bin目录下，输入startup.sh，启动tomcat服务
+ 6.3、将dubbo-admin.war传到CentOS
+ 在客户机上输入IP:8080/dubbo-admin/
+ 访问dubbo管理后台，账号密码都是root
+### 至此，dubbo服务搭建好了
+下面在eclipse里导入一个应用到分布式的项目
+## 七、dubbo.xsd配置
+在Eclipse--窗口--首选项--xml目录--添加--Catalog Entry
+位置找到配置文件里的dubbo.xsd
+key值为http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+[图片]
+ ## 八、启用项目
+ 8.1、导入项目文件
+ 8.2、更新，找到项目右键【Manven】--【Update project...】将相关项目更新一下
+ 8.3、安装，找到parent项目，右键【运行方式】--【Manven install】
+ 8.4、开启项目
+ 8.4.1、开启sellergoods-service项目，找到项目右键【运行方式】--【Manven bulid】--【Goals填写tomcat7:run】启动服务项目
+ 8.4.2、开启manager-web项目，找到项目右键【运行方式】--【Manven bulid】--【Goals填写tomcat7:run】启动客户端项目
+ 输入localhost:9101/admin即可查看该示例项目
+ 8.4.3、查看dubbo管理后台
+ 输入服务IP：8080/dubbo-admin/
+ 
